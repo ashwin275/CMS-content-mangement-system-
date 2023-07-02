@@ -66,7 +66,7 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=10),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=5),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
     "UPDATE_LAST_LOGIN": False,
@@ -138,9 +138,9 @@ WSGI_APPLICATION = 'CMS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql', #  using postgresql as database
-        'NAME': 'cms',
-        'USER':'postgres',
-        'PASSWORD':'ashwin@2001',
+        'NAME': '',
+        'USER':'',
+        'PASSWORD':'',
         'HOST':'localhost'
     }
 }

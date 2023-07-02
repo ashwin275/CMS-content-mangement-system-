@@ -44,6 +44,7 @@ class LoginView(APIView):
 
 class UserView(APIView):
     def post(self,request):
+       
 
         if not request.data:
             return Response({'error': 'No data provided.'}, status=status.HTTP_400_BAD_REQUEST)
@@ -97,7 +98,7 @@ class UserView(APIView):
         try:
             user_object = CustomUser.objects.get(id=request.user.id)
         except CustomUser.DoesNotExist:
-            raise NotFound({'error': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
+            raise Response({'error': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
         
 
         user_object.delete()
@@ -110,6 +111,7 @@ class UserView(APIView):
 class BlogView(APIView):
     permission_classes = [IsAuthenticated]
     def post(self,request):
+       print('called')
        if not request.data:
             return Response({'error': 'Invalid request: No data provided.'}, status=status.HTTP_400_BAD_REQUEST)
        
